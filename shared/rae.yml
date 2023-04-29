@@ -15,36 +15,35 @@ server:
 feign:
   hystrix:
     enabled: true
-    
+
 spring:
-    jpa:
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect             
-    flyway:
-        baseline-on-migrate: true
-    profiles:
-        active: prod
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/raeTenant
-        username: postgres
-        password: ricardo12
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+  profiles:
+    active: prod
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://bsc-evedisa-db-server.postgres.database.azure.com:5432/raeTenant
+    username: postgres
+    password: p1t4g0r4S
 
-
-    servlet: 
-        multipart: 
-            enabled: true
+  servlet:
+    multipart:
+      enabled: true
 staticresourceloader:
-    fileLocation:
-        path: file:/home/rae/subirArchivos
-    docFileLocation:
-        path: file:/home/rae/subirArchivos
+  fileLocation:
+    path: file:/home/rae/subirArchivos
+  docFileLocation:
+    path: file:/home/rae/subirArchivos
 
-    h2:
-        console:
-            enabled: true
-            path: /h2-console
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 api:
-    base:
-        url: /api/v.1
+  base:
+    url: /api/v.1

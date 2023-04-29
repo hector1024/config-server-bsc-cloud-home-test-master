@@ -15,28 +15,27 @@ server:
 feign:
   hystrix:
     enabled: true
-    
+
 spring:
-    jpa:
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect             
-    flyway:
-        baseline-on-migrate: true
-        locations: classpath:db/{vendor}/migration
-    profiles:
-        active: produ
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/bonificacionesTenant
-        username: postgres
-        password: ricardo12
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+    locations: classpath:db/{vendor}/migration
+  profiles:
+    active: produ
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://bsc-evedisa-db-server.postgres.database.azure.com:5432/bonificacionesTenant
+    username: postgres
+    password: p1t4g0r4S
 
-
-    servlet: 
-        multipart: 
-            enabled: true
+  servlet:
+    multipart:
+      enabled: true
 
 api:
-    base:
-        url: /api/v.1
+  base:
+    url: /api/v.1

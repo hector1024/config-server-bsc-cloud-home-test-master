@@ -15,39 +15,36 @@ server:
 feign:
   hystrix:
     enabled: true
-    
-spring:
-    jpa:
-        properties:
-            hibernate:
-                dialect: org.hibernate.dialect.PostgreSQLDialect             
-    flyway:
-        baseline-on-migrate: true
-    profiles:
-        active: produ
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://localhost:5432/visualizacionTenant
-        username: postgres
-        password: ricardo12
 
-    servlet: 
-        multipart: 
-            enabled: true
-    h2:
-        console:
-            enabled: true
-            path: /h2-console
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    baseline-on-migrate: true
+  profiles:
+    active: produ
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://bsc-evedisa-db-server.postgres.database.azure.com:5432/visualizacionTenant
+    username: postgres
+    password: p1t4g0r4S
+
+  servlet:
+    multipart:
+      enabled: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
 staticresourceloader:
-    fileLocation:
-        path: file:/home/jhon/pruebaSubirArchivos
-    docFileLocation:
-        path: file:/home/jhon/pruebaSubirArchivos
-        
-
-
+  fileLocation:
+    path: file:/home/jhon/pruebaSubirArchivos
+  docFileLocation:
+    path: file:/home/jhon/pruebaSubirArchivos
 
 api:
-    base:
-        url: /api/v.1
+  base:
+    url: /api/v.1
