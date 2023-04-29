@@ -1,0 +1,42 @@
+#This configuration file will hold common configs to be shared among all files
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8080/auth-service/api/v.1/oauth-clients/user/me
+      token-info-uri: http://localhost:8080/oauth/check_token
+      
+feign:
+    hystrix:
+        enabled: true
+    client:
+        config:
+            default:
+                connectTimeout: 90000
+                readTimeout: 90000
+
+logging:
+  level:
+    org:
+        springframework:
+            security: DEBUG
+    project: 
+        user: 
+            UserClient: debug 
+
+
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000000
+

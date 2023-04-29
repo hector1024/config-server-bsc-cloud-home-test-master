@@ -1,0 +1,51 @@
+security:
+    oauth2:
+      client:
+        registration:
+          custom-client:
+            client-name: auth-service
+            scope: user_info
+            provider: custom-provider
+            client-authentication-method: basic
+            authorization-grant-type: authorization_code
+        provider:
+          custom-provider:
+            token-uri: http://localhost:8080/auth/oauth/token
+            authorization-uri: http://localhost:8080/auth/oauth/authorize
+            user-info-uri: http://localhost:8080/auth/user/me
+            user-name-attribute: name
+
+server:
+  servlet:
+    context-path: /auth-service
+  port: 8089
+
+feign:
+  hystrix:
+    enabled: true
+    
+spring:
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect             
+    flyway:
+        baseline-on-migrate: true
+    profiles:
+        active: prod
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/oauth
+        username: postgres
+        password: ricardo12
+
+
+    servlet: 
+        multipart: 
+            enabled: true
+            
+api:
+    base:
+        url: /api/v.1
+
+   

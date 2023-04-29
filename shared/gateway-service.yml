@@ -1,0 +1,94 @@
+ribbon:
+  ReadTimeout: 1800000
+  ConnectTimeout: 1800000
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+  routes:
+    auth-service:
+      path: /auth-service/** #path that will be intercepted
+      url: auth-service #which url the request will be mapped to
+      stripPrefix: false #if zuul should replace the "/uaa/" segment
+      sensitiveHeaders:
+          
+    plan-accion-service:
+      path: /plan-accion/**
+      serviceId: plan-accion
+      stripPrefix: false
+      sensitiveHeaders: 
+       
+    plan-estrategico-service:
+      path: /plan-estrategico/**
+      serviceId: plan-estrategico
+      stripPrefix: false
+      sensitiveHeaders:
+          
+    iniciativas-service:
+      path: /iniciativas/**
+      serviceId: iniciativas
+      stripPrefix: false
+      sensitiveHeaders:
+          
+    bon-service:
+      path: /bonificaciones/**
+      serviceId: bonificaciones
+      stripPrefix: false
+      sensitiveHeaders:
+          
+    registrar-valores-service:
+      path: /registrar-valores/**
+      serviceId: registrar-valores
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    visualizacion:
+      path: /visualizacion/**
+      serviceId: visualizacion
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    rae:
+      path: /rae/**
+      serviceId: rae
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    config-general:
+      path: /config-general/**
+      serviceId: config-general
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    prueba:
+      path: /prueba/**
+      serviceId: prueba
+      stripPrefix: false
+      sensitiveHeaders:
+      
+    correo-server:
+      path: /correo-server/**
+      serviceId: correo-server
+      stripPrefix: false
+      sensitiveHeaders:
+
+    tenant:
+      path: /tenant/**
+      serviceId: tenant
+      stripPrefix: false
+      sensitiveHeaders:
+     
+    usuarios-bsc:
+      path: /usuarios-bsc/**
+      serviceId: usuarios-bsc
+      stripPrefix: false
+      sensitiveHeaders:
+      
+
+    
+
+server:
+  port: 8080
+

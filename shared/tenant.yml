@@ -1,0 +1,44 @@
+security:
+  oauth2:
+    client:
+      clientId: USER_BSC_APP
+      clientSecret: 1234
+      accessTokenUri: http://localhost:8080/auth-service/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+server:
+  servlet:
+    context-path: /tenant
+  port: 8095
+
+feign:
+  hystrix:
+    enabled: true
+    
+spring:
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect             
+    flyway:
+        baseline-on-migrate: true
+    profiles:
+        active: produ
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/tenant
+        username: postgres
+        password: ricardo12
+
+    servlet: 
+        multipart: 
+            enabled: true
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+
+api:
+    base:
+        url: /api/v.1

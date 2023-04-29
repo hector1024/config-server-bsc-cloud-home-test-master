@@ -1,0 +1,43 @@
+security:
+  oauth2:
+    client:
+      clientId: USER_BSC_APP
+      clientSecret: 1234
+      accessTokenUri: http://localhost:8080/auth-service/api/v.1/oauth-clients/user/me
+      grant-type: client_credentials
+      scope: server
+
+server:
+  servlet:
+    context-path: /iniciativas
+  port: 8084
+
+feign:
+  hystrix:
+    enabled: true
+    
+
+spring:
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect             
+    flyway:
+        baseline-on-migrate: true
+    profiles:
+        active: dev
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/iniciativasTenant
+        username: postgres
+        password: ricardo12
+
+
+    servlet: 
+        multipart: 
+            enabled: true
+
+
+api:
+    base:
+        url: /api/v.1

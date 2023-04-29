@@ -1,0 +1,29 @@
+#This configuration file will hold common configs to be shared among all files
+eureka:
+  instance:
+    prefer-ip-address: false
+  client:
+    serviceUrl:
+      defaultZone: http://10.0.4.112:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://10.0.4.112:8080/auth-service/user/me
+      token-info-uri: http://10.0.4.112:8080/oauth/check_token
+      
+feign:
+    hystrix:
+        enabled: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
